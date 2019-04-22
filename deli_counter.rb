@@ -3,12 +3,22 @@ katz_deli = []
 
 def line (katz_deli)
   if katz_deli.length == 0
-    return "The line is currently empty."
+    puts "The line is currently empty."
   else
     list = katz_deli.map.with_index{|x , i| (i+1).to_s +  '. ' + x}
-    return "The line is currently: "<< list.join(" ")
+    puts "The line is currently: "<< list.join(" ")
+  end
 end
 
 def take_a_number (katz_deli, name)
-  return "Welcome #{name}, "
+  katz_deli << name
+  puts "Welcome #{name}. You are number #{katz_deli.length} in line."
+  return katz_deli
 end
+
+def now_serving (katz_deli)
+  puts "Currently serving #{katz_deli[0]}."
+  katz_deli.shift
+  return katz_deli
+end
+
